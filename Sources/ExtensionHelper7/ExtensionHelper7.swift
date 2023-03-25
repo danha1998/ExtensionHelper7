@@ -15,7 +15,7 @@ public struct SevenView {
 
     @State var is_seven_reco_done: Bool = false
 
-    var body: some View {
+    public var body: some View {
         ZStack { Color.white.ignoresSafeArea()
             if is_seven_chuyen_mam {
                 Color.clear.onAppear {
