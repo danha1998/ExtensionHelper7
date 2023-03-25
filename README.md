@@ -1,2 +1,3 @@
 # ExtensionHelper7
-extension helper
+
+A description of this package.
