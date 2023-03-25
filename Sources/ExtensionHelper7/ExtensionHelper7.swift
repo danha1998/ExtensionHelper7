@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-public struct SevenView {
+public struct SevenView: View {
     public init(whenCompletePushToNine: @escaping () -> Void, whenCompletePushToTen: @escaping () -> Void) {
         self.whenCompletePushToNine = whenCompletePushToNine
         self.whenCompletePushToTen = whenCompletePushToTen
