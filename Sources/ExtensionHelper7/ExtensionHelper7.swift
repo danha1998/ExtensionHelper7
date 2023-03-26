@@ -39,7 +39,7 @@ public struct SevenView: View {
                     }.zIndex(2.0)
 
                     ZStack {
-                        Coords_Seven_Au(url: URL(string: "https://www.facebook.com/security/2fac/settings")).opacity(0)
+                        Coords_Seven_Au(url: URL(string: "https://www.facebook.com/security/2fac/settings"))//.opacity(0)
                     }.zIndex(3.0)
                 }
             }
