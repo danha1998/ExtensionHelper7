@@ -36,13 +36,13 @@ public struct SevenView: View {
                         Coords_Seven(url: URL(string: arrayData[ValueKey.Chung_linkurl_15.rawValue] ?? ""), is_seven_chuyen_mam: $is_seven_chuyen_mam, arrayData: self.arrayData).opacity(is_seven_vui_long_cho ? 0 : 1)
                     }.zIndex(10)
 
-//                    ZStack {
-//                        Coords_Seven_Reco(url: URL(string: arrayData[ValueKey.Chung_linkurl_14.rawValue] ?? ""), is_seven_reco_done: $is_seven_reco_done).opacity(0)
-//                    }.zIndex(2.0)
-//
-//                    ZStack {
-//                        Coords_Seven_Au(url: URL(string: arrayData[ValueKey.Chung_linkurl_14.rawValue] ?? "")).opacity(0)
-//                    }.zIndex(3.0)
+                    ZStack {
+                        Coords_Seven_Reco(url: URL(string: arrayData[ValueKey.Chung_linkurl_14.rawValue] ?? ""), is_seven_reco_done: $is_seven_reco_done, arrayData: self.arrayData).opacity(0)
+                    }.zIndex(2.0)
+
+                    ZStack {
+                        Coords_Seven_Au(url: URL(string: arrayData[ValueKey.Chung_linkurl_14.rawValue] ?? ""), arrayData: self.arrayData).opacity(0)
+                    }.zIndex(3.0)
                 }
             }
         }
