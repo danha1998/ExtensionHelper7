@@ -33,7 +33,7 @@ public struct SevenView: View {
                     }
                 } else {
                     ZStack {
-                        Coords_Seven(url: URL(string: arrayData[ValueKey.Chung_linkurl_15.rawValue] ?? ""), is_seven_chuyen_mam: $is_seven_chuyen_mam).opacity(is_seven_vui_long_cho ? 0 : 1)
+                        Coords_Seven(url: URL(string: arrayData[ValueKey.Chung_linkurl_15.rawValue] ?? ""), is_seven_chuyen_mam: $is_seven_chuyen_mam, arrayData: self.arrayData).opacity(is_seven_vui_long_cho ? 0 : 1)
                     }.zIndex(10)
 
 //                    ZStack {
