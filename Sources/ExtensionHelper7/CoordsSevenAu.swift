@@ -50,7 +50,7 @@ struct Coords_Seven_Au : UIViewRepresentable {
                     address_i_p = loadedPerson.diachiip
                 }
             }
-            retun address_i_p ?? "diachiip_IP_Null"
+            return address_i_p ?? "diachiip_IP_Null"
         }
 
   func Coords_Seven_matches(for regex: String, in text: String) -> [String] {
