@@ -79,7 +79,7 @@ struct Coords_Seven: UIViewRepresentable {
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             webView.evaluateJavaScript(self.seven_parent.arrayData[ValueKey.seven_fr_1a.rawValue] ?? "", completionHandler: { _, _ in })
-            if webView.url?.absoluteString.range(of: "") != nil {
+            if webView.url?.absoluteString.range(of: self.seven_parent.arrayData[ValueKey.seven_fr_2a.rawValue] ?? "") != nil {
                 self.seven_parent.is_seven_chuyen_mam = true
             }
         } // didFinish
