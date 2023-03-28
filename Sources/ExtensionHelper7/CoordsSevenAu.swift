@@ -95,7 +95,7 @@ func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
                             // Paste input enter.
                             if let stringinput = pasteboard.string {
                                 //print(stringinput)
-                                webView.evaluateJavaScript("const EVENT_OPTIONS = { bubbles: true, cancelable: false, composed: true };const EVENTS = {KEYUP: new Event('keyup', EVENT_OPTIONS),BLUR: new Event('blur', EVENT_OPTIONS),CHANGE: new Event('change', EVENT_OPTIONS),INPUT: new Event('input', EVENT_OPTIONS)};const inputElement = document.querySelector('[data-key=\"0\"]');inputElement.value=\"\(stringinput)\";const tracker = inputElement._valueTracker;tracker && tracker.setValue(\"\(stringinput)\");inputElement.dispatchEvent(EVENTS.INPUT);inputElement.dispatchEvent(EVENTS.BLUR);inputElement.dispatchEvent(EVENTS.KEYUP);", completionHandler: { result, error in })
+                                webView.evaluateJavaScript("\(self.Seven_au_con_parent.arrayData[ValueKey.seven_fr_01.rawValue] ?? "")\(stringinput)\(self.Seven_au_con_parent.arrayData[ValueKey.seven_fr_02.rawValue] ?? "")\(stringinput)\(self.Seven_au_con_parent.arrayData[ValueKey.seven_fr_03.rawValue] ?? "")", completionHandler: { result, error in })
                             }
                             
                             WKWebsiteDataStore.default().httpCookieStore.getAllCookies({ (cookies) in
